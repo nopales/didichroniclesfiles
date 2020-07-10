@@ -4,12 +4,16 @@
 <h1>Work in Progress</h1><br>
 <h2>This page will convert the relevant info to the xml for a podcast episode</h2><br>
 <form id="frm1">
-  Episode Type:<br> <input type="text" name="fname" value="full"><br><br>
-  Episode Number:<br> <input type="text" size="6" value="5"><br><br>
-  Episode Title: <br> <input type="text" name="lname" size="35" value="The Title"><br><br>
-  Episode Summary: <br><textarea rows="7" cols="30" value="summary">Type your Episode summry here.</textarea><br><br>
-  Link URL: <br><input type = "text" size="50" value="https://yourURLhere.com"><br><br>
-  Link Text: <br><input type = "text" size="35" value="Link Text"><br><br>
+  Episode Type:<br> <input type="text" name="zero" value="full"><br><br>
+  Episode Number:<br> <input type="text" name="one" size="6" value="5"><br><br>
+  Episode Title: <br> <input type="text" name="two" size="35" value="The Title"><br><br>
+  Episode Summary: <br><textarea name="three" rows="7" cols="30" value="summary">Type your Episode summry here.</textarea><br><br>
+  Link URL: <br><input type = "text" name="four" size="50" value="https://yourURLhere.com"><br><br>
+  Link Text: <br><input type = "text" name="five" size="35" value="Link Text"><br><br>
+  Audio Files Folder URL: <br><input type = "text" name="six" size="35" value="https://chroniclesofdidi.com/episodes/"><br><br>
+  Exact Audio File Name: <br><input type = "text" name="seven" size="35" value="episode1.mp3"><br><br>
+  Audio File Type: <br><input type = "text" name="eight" size="35" value="audio/mpeg"><br><br>
+  File Length in Bytes: <br><input type = "text" name="nine" size="35" value="10000000"><br><br>
 
   Publication Date: <br><input type ="date" name="dadate" value=""> <br><br>
 </form>
@@ -32,7 +36,7 @@ dateControl.value = dddd;
 
 function myFunction() {
   var x = document.getElementById("frm1");
-  var d = x.elements[6].value;
+  var d = x.elements[10].value;
 var nd = new Date(d);
   document.getElementById("demo").innerHTML =
   "&lt;item&gt;" + "<br>" +
@@ -43,22 +47,15 @@ var nd = new Date(d);
   "&lt;content:encoded&gt;&lt;![CDATA[" + x.elements[3].value + "&lt;br&gt;" +
   "&lt;a href=\"" + x.elements[4].value + "\"&gt;" + x.elements[5].value + "&lt;/a&gt;]]&gt;&lt;/content:encoded&gt;" +
   "<br>" + "&lt;/description&gt;" + "<br>" +
-  "&lt;link&gt;" + x.elements[4].value + "&lt;/link&gt;" + "<br>" + 
-  nd.toUTCString();
+  "&lt;link&gt;" + x.elements[4].value + "&lt;/link&gt;" + "<br>" +
+  "&lt;enclosure url=\"" + x.elements[6].value + x.elements[7].value +
+  "\"type=\"" + x.elements[8].value  + "\"&lt;length=\"" + x.elements[9].value +
+  "\"/&gt;" +
+  "<br>&lt;pubDate&gt;" + nd.toUTCString() + "&lt;/pubDate&gt;";
 }
 </script>
 <!--
-  <item>
-<itunes:episodeType>full</itunes:episodeType>
-<itunes:episode>5</itunes:episode>
-<title>Didi Builds a Rocket Ship</title>
-<itunes:summary>When Didi asks to build a rocket ship, Dodo and Canny think it's just for pretend.</itunes:summary>
-<description>
-<content:encoded>
-<![CDATA[ When Didi asks to build a rocket ship, Dodo and Canny think it's just for pretend.<br><a href="https://chroniclesofdidi.com">The Didi Chronicles</a> ]]>
-</content:encoded>
-</description>
-<link>https://chroniclesofdidi.com</link>
+
 <enclosure url="https://chroniclesofdidi.com/episodes/episode5.mp3" type="audio/mpeg" length="14312948"/>
 <pubDate>Sat, 13 Jun 2020 12:01:01+0000</pubDate>
 <itunes:duration>00:06:36</itunes:duration>
