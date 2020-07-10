@@ -3,8 +3,9 @@
 <body>
 <h1>Work in Progress</h1><br>
 <h2>This page will convert the relevant info to the xml for a podcast episode</h2><br>
+<h3>I've put some default values and/or descitptors in the form. Not sure what to enter?  <a href="https://help.apple.com/itc/podcasts_connect/#/itcb54353390"> Here is a link to the itunes tag specs.</a></h3>
 <form id="frm1">
-  Episode Type:<br> <input type="text" name="zero" value="full"><br><br>
+  Episode Type (full, trailer or bonus):<br> <input type="text" name="zero" value="full"><br><br>
   Episode Number:<br> <input type="text" name="one" size="6" value="5"><br><br>
   Episode Title: <br> <input type="text" name="two" size="35" value="The Title"><br><br>
   Episode Summary: <br><textarea name="three" rows="7" cols="30" value="summary">Type your Episode summry here.</textarea><br><br>
@@ -25,7 +26,7 @@
 
 <button onclick="myFunction()">Generate XML</button>
 
-<p id="demo"></p>
+<p id="codeblock"></p>
 
 <script>
 //*sets default date to today
@@ -41,14 +42,18 @@ function myFunction() {
   var x = document.getElementById("frm1");
   var d = x.elements[10].value;
 var nd = new Date(d);
-  document.getElementById("demo").innerHTML =
+  document.getElementById("codeblock").innerHTML =
   "&lt;item&gt;" + "<br>" +
-  "&lt;itunes:episodeType&gt;" + x.elements[0].value + "&lt;/itunes:episodeType&gt;" + "<br>" +
-  "&lt;itunes:episode&gt;" + x.elements[1].value + "&lt;/itunes:episode&gt;" + "<br>" +
+  "&lt;itunes:episodeType&gt;" + x.elements[0].value +
+  "&lt;/itunes:episodeType&gt;" + "<br>" +
+  "&lt;itunes:episode&gt;" + x.elements[1].value + "&lt;/itunes:episode&gt;" +
+  "<br>" +
   "&lt;title&gt;" + x.elements[2].value + "&lt;/title&gt;" + "<br>" +
-  "&lt;itunes:summary&gt;" + x.elements[3].value + "&lt;/itunes:summary&gt;" + "<br>" + "&lt;description&gt;" + "<br>" +
+  "&lt;itunes:summary&gt;" + x.elements[3].value + "&lt;/itunes:summary&gt;" +
+  "<br>" + "&lt;description&gt;" + "<br>" +
   "&lt;content:encoded&gt;&lt;![CDATA[" + x.elements[3].value + "&lt;br&gt;" +
-  "&lt;a href=\"" + x.elements[4].value + "\"&gt;" + x.elements[5].value + "&lt;/a&gt;]]&gt;&lt;/content:encoded&gt;" +
+  "&lt;a href=\"" + x.elements[4].value + "\"&gt;" + x.elements[5].value +
+  "&lt;/a&gt;]]&gt;&lt;/content:encoded&gt;" +
   "<br>" + "&lt;/description&gt;" + "<br>" +
   "&lt;link&gt;" + x.elements[4].value + "&lt;/link&gt;" + "<br>" +
   "&lt;enclosure url=\"" + x.elements[6].value + x.elements[7].value +
@@ -58,17 +63,12 @@ var nd = new Date(d);
   "&lt;itunes:duration&gt;" + x.elements[11].value + "&lt;/itunes:duration&gt;" +
   "<br>&lt;itunes:image href=\"" + x.elements[12].value + x.elements[13].value +
   "\"&gt;&lt;/itunes:image&gt;" + "<br>" +
-  "&lt;itunes:explicit&gt;" + x.elements[14].value + "&lt;/itunes:explicit&gt;"
+  "&lt;itunes:explicit&gt;" + x.elements[14].value + "&lt;/itunes:explicit&gt;"+
+  "<br>" + "&lt;guid&gt;" + x.elements[6].value + x.elements[7].value +
+  "&lt;/guid&gt;" + "<br>" + "&lt;/item&gt;"
 
   ;
 }
 </script>
-<!--
-
-<itunes:explicit>no</itunes:explicit>
-<guid>https://chroniclesofdidi.com/episodes/episode5.mp3</guid>
-</item>
-</p>
 </body>
 </html>
--->
