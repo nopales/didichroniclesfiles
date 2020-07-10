@@ -14,8 +14,11 @@
   Exact Audio File Name: <br><input type = "text" name="seven" size="35" value="episode1.mp3"><br><br>
   Audio File Type: <br><input type = "text" name="eight" size="35" value="audio/mpeg"><br><br>
   File Length in Bytes: <br><input type = "text" name="nine" size="35" value="10000000"><br><br>
-
   Publication Date: <br><input type ="date" name="dadate" value=""> <br><br>
+  Duration: (HH:MM:SS) <br><input type = "text" name="eleven" size="35" value="00:45:06"><br><br>
+  Image Folder URL: <br><input type = "text" name="twelve" size="35" value="https://chroniclesofdidi.com/images/"><br><br>
+  Episode Image File Name: <br><input type = "text" name="thirteen" size="35" value="episode1.jpg"><br><br>
+  Explicit: (yes or no)<br><input type = "text" name="fourteen" size="35" value="no"><br><br>
 </form>
 
 <p>Click "Generate XML" to get the code for your episode.</p>
@@ -51,15 +54,17 @@ var nd = new Date(d);
   "&lt;enclosure url=\"" + x.elements[6].value + x.elements[7].value +
   "\"type=\"" + x.elements[8].value  + "\"&lt;length=\"" + x.elements[9].value +
   "\"/&gt;" +
-  "<br>&lt;pubDate&gt;" + nd.toUTCString() + "&lt;/pubDate&gt;";
+  "<br>&lt;pubDate&gt;" + nd.toUTCString() + "&lt;/pubDate&gt;<br>" +
+  "&lt;itunes:duration&gt;" + x.elements[11].value + "&lt;/itunes:duration&gt;" +
+  "<br>&lt;itunes:image href=\"" + x.elements[12].value + x.elements[13].value +
+  "\"&gt;&lt;/itunes:image&gt;" + "<br>" +
+  "&lt;itunes:explicit&gt;" + x.elements[14].value + "&lt;/itunes:explicit&gt;"
+
+  ;
 }
 </script>
 <!--
 
-<enclosure url="https://chroniclesofdidi.com/episodes/episode5.mp3" type="audio/mpeg" length="14312948"/>
-<pubDate>Sat, 13 Jun 2020 12:01:01+0000</pubDate>
-<itunes:duration>00:06:36</itunes:duration>
-<itunes:image href="https://chroniclesofdidi.com/images/episode.jpg"> </itunes:image>
 <itunes:explicit>no</itunes:explicit>
 <guid>https://chroniclesofdidi.com/episodes/episode5.mp3</guid>
 </item>
