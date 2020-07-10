@@ -4,10 +4,14 @@
 <h1>Work in Progress</h1><br>
 <h2>This page will convert the relevant info to the xml for a podcast episode</h2><br>
 <form id="frm1">
-  Episode Type: <input type="text" name="fname" value="full"><br>
-  Episode Number: <input type="number" name="fname" value="5"><br>
-  Episode Title: <input type="text" name="lname" value="The Title"><br><br>
-  Publication Date: <input type ="date" name="dadate" value=""> <br>
+  Episode Type:<br> <input type="text" name="fname" value="full"><br><br>
+  Episode Number:<br> <input type="text" size="6" value="5"><br><br>
+  Episode Title: <br> <input type="text" name="lname" size="35" value="The Title"><br><br>
+  Episode Summary: <br><textarea rows="7" cols="30" value="summary">Type your Episode summry here.</textarea><br><br>
+  Link URL: <br><input type = "text" size="50" value="https://yourURLhere.com"><br><br>
+  Link Text: <br><input type = "text" size="35" value="Link Text"><br><br>
+
+  Publication Date: <br><input type ="date" name="dadate" value=""> <br><br>
 </form>
 
 <p>Click "Generate XML" to get the code for your episode.</p>
@@ -17,17 +21,29 @@
 <p id="demo"></p>
 
 <script>
+//*sets default date to today
+var dd = new Date();
+var ddd = dd.toISOString();
+var dddd = ddd.slice(0, 10);
 var dateControl = document.querySelector('input[type="date"]');
+dateControl.value = dddd;
+
+
 
 function myFunction() {
   var x = document.getElementById("frm1");
-  var d = x.elements[3].value;
+  var d = x.elements[6].value;
 var nd = new Date(d);
   document.getElementById("demo").innerHTML =
   "&lt;item&gt;" + "<br>" +
   "&lt;itunes:episodeType&gt;" + x.elements[0].value + "&lt;/itunes:episodeType&gt;" + "<br>" +
   "&lt;itunes:episode&gt;" + x.elements[1].value + "&lt;/itunes:episode&gt;" + "<br>" +
   "&lt;title&gt;" + x.elements[2].value + "&lt;/title&gt;" + "<br>" +
+  "&lt;itunes:summary&gt;" + x.elements[3].value + "&lt;/itunes:summary&gt;" + "<br>" + "&lt;description&gt;" + "<br>" +
+  "&lt;content:encoded&gt;&lt;![CDATA[" + x.elements[3].value + "&lt;br&gt;" +
+  "&lt;a href=\"" + x.elements[4].value + "\"&gt;" + x.elements[5].value + "&lt;/a&gt;]]&gt;&lt;/content:encoded&gt;" +
+  "<br>" + "&lt;/description&gt;" + "<br>" +
+  "&lt;link&gt;" + x.elements[4].value + "&lt;/link&gt;" + "<br>" + 
   nd.toUTCString();
 }
 </script>
