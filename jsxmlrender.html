@@ -4,14 +4,15 @@
 <h1>Work in Progress</h1><br>
 <h2>This page will convert the relevant info to the xml for a podcast episode</h2><br>
 <form id="frm1">
-  First name: <input type="text" name="fname" value="Donald"><br>
-  Last name: <input type="text" name="lname" value="Duck"><br><br>
+  Episode Type: <input type="text" name="fname" value="full"><br>
+  Episode Number: <input type="number" name="fname" value="5"><br>
+  Episode Title: <input type="text" name="lname" value="The Title"><br><br>
   Publication Date: <input type ="date" name="dadate" value=""> <br>
 </form>
 
-<p>Click "Try it" to display the value of each element in the form.</p>
+<p>Click "Generate XML" to get the code for your episode.</p>
 
-<button onclick="myFunction()">Try it</button>
+<button onclick="myFunction()">Generate XML</button>
 
 <p id="demo"></p>
 
@@ -20,11 +21,36 @@ var dateControl = document.querySelector('input[type="date"]');
 
 function myFunction() {
   var x = document.getElementById("frm1");
-  var d = x.elements[2].value;
+  var d = x.elements[3].value;
 var nd = new Date(d);
-  document.getElementById("demo").innerHTML = nd.toUTCString();
+  document.getElementById("demo").innerHTML =
+  "&lt;item&gt;" + "<br>" +
+  "&lt;itunes:episodeType&gt;" + x.elements[0].value + "&lt;/itunes:episodeType&gt;" + "<br>" +
+  "&lt;itunes:episode&gt;" + x.elements[1].value + "&lt;/itunes:episode&gt;" + "<br>" +
+  "&lt;title&gt;" + x.elements[2].value + "&lt;/title&gt;" + "<br>" +
+  nd.toUTCString();
 }
 </script>
-
+<!--
+  <item>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:episode>5</itunes:episode>
+<title>Didi Builds a Rocket Ship</title>
+<itunes:summary>When Didi asks to build a rocket ship, Dodo and Canny think it's just for pretend.</itunes:summary>
+<description>
+<content:encoded>
+<![CDATA[ When Didi asks to build a rocket ship, Dodo and Canny think it's just for pretend.<br><a href="https://chroniclesofdidi.com">The Didi Chronicles</a> ]]>
+</content:encoded>
+</description>
+<link>https://chroniclesofdidi.com</link>
+<enclosure url="https://chroniclesofdidi.com/episodes/episode5.mp3" type="audio/mpeg" length="14312948"/>
+<pubDate>Sat, 13 Jun 2020 12:01:01+0000</pubDate>
+<itunes:duration>00:06:36</itunes:duration>
+<itunes:image href="https://chroniclesofdidi.com/images/episode.jpg"> </itunes:image>
+<itunes:explicit>no</itunes:explicit>
+<guid>https://chroniclesofdidi.com/episodes/episode5.mp3</guid>
+</item>
+</p>
 </body>
 </html>
+-->
