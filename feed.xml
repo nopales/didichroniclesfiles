@@ -24,6 +24,7 @@
     </itunes:category>
     <itunes:explicit>false</itunes:explicit>
     <!--EPISODES BEGIN HERE-->
+<<<<<<< HEAD
     <!--Episode 6-->
     <item>
 <itunes:episodeType>full</itunes:episodeType>
@@ -41,6 +42,9 @@
 <itunes:explicit>no</itunes:explicit>
 <guid>https://chroniclesofdidi.com/episodes/episode6.mp3</guid>
 </item>
+=======
+    
+>>>>>>> 014746494a93ea4410b48b13b1dddac3cdcc4f7c
     <!--EPISODE 5-->
     <item> <itunes:episodeType>full</itunes:episodeType><itunes:episode>5</itunes:episode><title>Didi Builds a Rocket Ship</title> <itunes:summary>When Didi asks to build a rocket ship, Dodo and Canny think it's just for pretend.</itunes:summary> <description><content:encoded><![CDATA[When Didi asks to build a rocket ship, Dodo and Canny think it's just for pretend.<br><a href="https://chroniclesofdidi.com">The Didi Chronicles</a>]]></content:encoded></description> <link>https://chroniclesofdidi.com</link> <enclosure url="https://chroniclesofdidi.com/episodes/episode5.mp3" type="audio/mpeg" length="14312948"></enclosure> <pubDate>Sat, 13 Jun 2020 12:01:01 +0000</pubDate> <itunes:duration>00:06:36</itunes:duration> <itunes:image href="https://chroniclesofdidi.com/images/episode.jpg"> </itunes:image><itunes:explicit>no</itunes:explicit> <guid>https://chroniclesofdidi.com/episodes/episode5.mp3</guid> </item>
     <!--EPISODE 4-->
