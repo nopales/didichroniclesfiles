@@ -8,9 +8,9 @@
   Episode Type (full, trailer or bonus):<br> <input type="text" name="zero" value="full"><br><br>
   Episode Number:<br> <input type="text" name="one" size="6" value="5"><br><br>
   Episode Title: <br> <input type="text" name="two" size="35" value="Episode Title"><br><br>
-  Episode Summary: <br><textarea name="three" rows="7" cols="30" value="summary">Type your Episode summry here.</textarea><br><br>
+  Episode Summary: <br><textarea name="three" rows="7" cols="30" value="summary">Type your Episode summary here.</textarea><br><br>
   Link URL: <br><input type = "text" name="four" size="50" value="https://chroniclesofdidi.com"><br><br>
-  Link Text: <br><input type = "text" name="five" size="35" value="The Chronciles of Didi Website"><br><br>
+  Link Text: <br><input type = "text" name="five" size="35" value="The Chronicles of Didi Website"><br><br>
   Audio Files Folder URL: <br><input type = "text" name="six" size="35" value="https://chroniclesofdidi.com/episodes/"><br><br>
   Exact Audio File Name: <br><input type = "text" name="seven" size="35" value="episode1.mp3"><br><br>
   Audio File Type: <br><input type = "text" name="eight" size="35" value="audio/mpeg"><br><br>
@@ -18,7 +18,7 @@
   Publication Date: <br><input type ="date" name="dadate" value=""> <br><br>
   Duration: (HH:MM:SS) <br><input type = "text" name="eleven" size="35" value="00:45:06"><br><br>
   Image Folder URL: <br><input type = "text" name="twelve" size="35" value="https://chroniclesofdidi.com/images/"><br><br>
-  Episode Image File Name: <br><input type = "text" name="thirteen" size="35" value="episode1.jpg"><br><br>
+  Episode Image File Name: <br><input type = "text" name="thirteen" size="35" value="episode.jpg"><br><br>
   Explicit: (yes or no)<br><input type = "text" name="fourteen" size="35" value="no"><br><br>
 </form>
 
@@ -57,8 +57,8 @@ var nd = new Date(d);
   "<br>" + "&lt;/description&gt;" + "<br>" +
   "&lt;link&gt;" + x.elements[4].value + "&lt;/link&gt;" + "<br>" +
   "&lt;enclosure url=\"" + x.elements[6].value + x.elements[7].value +
-  "\"type=\"" + x.elements[8].value  + "\"&lt;length=\"" + x.elements[9].value +
-  "\"/&gt;" +
+  "\" type=\"" + x.elements[8].value  + "\" length=\"" + x.elements[9].value +
+  "\"&gt;" + "<br>&lt;/enclosure&gt;" +
   "<br>&lt;pubDate&gt;" + nd.toUTCString() + "&lt;/pubDate&gt;<br>" +
   "&lt;itunes:duration&gt;" + x.elements[11].value + "&lt;/itunes:duration&gt;" +
   "<br>&lt;itunes:image href=\"" + x.elements[12].value + x.elements[13].value +
